@@ -1,32 +1,27 @@
-# Python3 program to Find the sum of 
-# first N odd Fibonacci numbers 
-mod = 1000000007 ;
+# Function to find the leaders in an array
+def leaders(arr):
+    result = []
+    n = len(arr)
 
-# Function to calculate sum of 
-# first N odd Fibonacci numbers 
-def sumOddFibonacci(n): 
+    # Start with the rightmost element
+    maxRight = arr[-1]
 
-	Sum=[0]*(n + 1); 
+    # Rightmost element is always a leader
+    result.append(maxRight)
 
-	# base values 
-	Sum[0] = 0; 
-	Sum[1] = 1; 
-	Sum[2] = 2; 
-	Sum[3] = 5; 
-	Sum[4] = 10; 
-	Sum[5] = 23; 
+    # Traverse the array from right to left
+    for i in range(n - 2, -1, -1):
+        if arr[i] > maxRight:
+            maxRight = arr[i]
+            result.append(maxRight)
 
-	for i in range(6,n+1): 
-	Sum[i] = ((Sum[i - 1] +
-					(4 * Sum[i - 2]) % mod -
-					(4 * Sum[i - 3]) % mod +
-					mod) % mod + (Sum[i - 4] -
-					Sum[i - 5] + mod) % mod) % mod; 
+    # Reverse the result list to maintain
+    # original order
+    result.reverse()
 
-	return Sum[n]; 
+    return result
 
-# Driver code 
-n = 6; 
-print(sumOddFibonacci(n)); 
-
-# This code is contributed by mits
+if __name__ == "__main__":
+    arr = [16, 17, 4, 3, 5, 2]
+    result = leaders(arr)
+    print(" ".join(map(str, result)))

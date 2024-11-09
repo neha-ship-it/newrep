@@ -7,7 +7,7 @@ def Hosoya( n , m ):
 	if ((n == 0 and m == 0) or
 		(n == 1 and m == 0) or
 		(n == 1 and m == 1) or
-		n == 2 and m == 1)):
+		(n == 2 and m == 1)):
 				return 1
 	
 	# Recursive step
