@@ -21,10 +21,10 @@ def Hosoya( n , m ):
 		return 0
 		
 # Print the Hosoya triangle of height n.
-def printHosoya( n ):
+def printHosoya(self,  n ):
 	for i in range(n):
 		for j in range(i + 1):
-			print(Hosoya(i, j) , end = " ")
+			print(Hosoya(i, j) , end = "    ")
 		print("\n", end = "")
 		
 # Driven Code
